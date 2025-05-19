@@ -4,6 +4,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
+
+const userRoutes = require('./routes/userRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -25,6 +28,10 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
   res.send('🐾 PetSync CRM API is running...');
 });
+
+// Routes
+app.use('/api/users', userRoutes);
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
