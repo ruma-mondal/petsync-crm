@@ -27,7 +27,7 @@ exports.loginUser = async (req, res) => {
     if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });
 
     // Implement token generation here (JWT or session)
-    res.status(200).json({ message: 'Login successful', user });
+    res.status(200).json({success: true , message: 'Login successful', user });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
